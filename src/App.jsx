@@ -4,7 +4,7 @@ import {
   Route
 } from 'react-router-dom';
 
-import { AuthProvider } from './context/AuthContext'; // ← ini penting!
+import AuthProvider from './context/AuthContext'; // ← ini penting!
 
 import HomePage from './pages/HomePage.jsx';
 import BookingPage from './pages/BookingPage.jsx';

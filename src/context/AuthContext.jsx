@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const AuthContext = createContext();
 
-export function AuthProvider({ children }) {
+const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
   const login = async (username, password) => {
@@ -29,6 +29,4 @@ export function AuthProvider({ children }) {
   );
 }
 
-export function useAuth() {
-  return useContext(AuthContext);
-}
+export default AuthProvider;
