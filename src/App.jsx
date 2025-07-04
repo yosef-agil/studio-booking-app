@@ -6,15 +6,15 @@ import {
 
 import { AuthProvider } from './context/AuthContext'; // ← ini penting!
 
-import HomePage from './pages/HomePage';
-import BookingPage from './pages/BookingPage';
-import AdminLogin from './pages/Admin/Login';
-import AdminDashboard from './pages/Admin/Dashboard';
-import AdminBookings from './pages/Admin/Bookings';
-import AdminThemes from './pages/Admin/Themes';
-import AdminSettings from './pages/Admin/Settings';
-import AdminLayout from './components/AdminLayout';
-import RequireAuth from './components/RequireAuth';
+import HomePage from './pages/HomePage.jsx';
+import BookingPage from './pages/BookingPage.jsx';
+import AdminLogin from './pages/Admin/Login.jsx';
+import AdminDashboard from './pages/Admin/Dashboard.jsx';
+import AdminBookings from './pages/Admin/Bookings.jsx';
+import AdminThemes from './pages/Admin/Themes.jsx';
+import AdminSettings from './pages/Admin/Settings.jsx';
+import AdminLayout from './components/AdminLayout.jsx';
+import RequireAuth from './components/RequireAuth.jsx';
 
 
 
