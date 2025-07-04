@@ -1,4 +1,5 @@
 const express = require('express');
+import App from './App';
 const cors = require('cors');
 require('dotenv').config();
 
@@ -15,3 +16,4 @@ app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
 const authRoutes = require('./routes/auth');
 app.use('/auth', authRoutes);
+
