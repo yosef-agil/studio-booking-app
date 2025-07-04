@@ -4,7 +4,7 @@ import {
   Route
 } from 'react-router-dom';
 
-import AuthProvider from './context/AuthContext'; // ← ini penting!
+import AuthProvider from './context/AuthContext';
 
 import HomePage from './pages/HomePage.jsx';
 import BookingPage from './pages/BookingPage.jsx';
@@ -16,10 +16,6 @@ import AdminSettings from './pages/Admin/Settings.jsx';
 import AdminLayout from './components/AdminLayout.jsx';
 import RequireAuth from './components/RequireAuth.jsx';
 
-
-
-// ...
-
 function App() {
   return (
     <AuthProvider>
@@ -28,7 +24,6 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/booking" element={<BookingPage />} />
           <Route path="/admin/login" element={<AdminLogin />} />
-
           <Route
             path="/admin"
             element={
