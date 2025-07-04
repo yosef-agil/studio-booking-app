@@ -1,5 +1,19 @@
-import { AuthProvider } from './context/AuthContext';
-import RequireAuth from './components/RequireAuth';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from 'react-router-dom';
+
+import HomePage from './pages/HomePage';
+import BookingPage from './pages/BookingPage';
+import AdminLogin from './pages/Admin/Login';
+import AdminDashboard from './pages/Admin/Dashboard';
+import AdminBookings from './pages/Admin/Bookings';
+import AdminThemes from './pages/Admin/Themes';
+import AdminSettings from './pages/Admin/Settings';
+import AdminLayout from './components/AdminLayout';
+import RequireAuth from './components/RequireAuth'; // kalau pakai
+
 
 // ...
 
