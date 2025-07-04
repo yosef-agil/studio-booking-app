@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-function HomePage() {
+function Dashboard() {
   const [bookings, setBookings] = useState([]);
 
   useEffect(() => {
@@ -36,4 +36,4 @@ function HomePage() {
   );
 }
 
-export default HomePage;
+export default Dashboard;
