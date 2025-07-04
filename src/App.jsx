@@ -4,6 +4,8 @@ import {
   Route
 } from 'react-router-dom';
 
+import { AuthProvider } from './context/AuthContext'; // ← ini penting!
+
 import HomePage from './pages/HomePage';
 import BookingPage from './pages/BookingPage';
 import AdminLogin from './pages/Admin/Login';
@@ -12,7 +14,8 @@ import AdminBookings from './pages/Admin/Bookings';
 import AdminThemes from './pages/Admin/Themes';
 import AdminSettings from './pages/Admin/Settings';
 import AdminLayout from './components/AdminLayout';
-import RequireAuth from './components/RequireAuth'; // kalau pakai
+import RequireAuth from './components/RequireAuth';
+
 
 
 // ...
