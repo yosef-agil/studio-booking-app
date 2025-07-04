@@ -1,68 +1,41 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 
-export default function BookingPage() {
+function BookingPage() {
   const [formData, setFormData] = useState({
     name: '',
+    phone: '',
     date: '',
-    time: '',
-    theme: '',
-    people: 1
+    time_slot: '',
+    notes: ''
   });
 
-  const themes = [
-    { id: 1, name: 'Natural Light', price: 150000 },
-    { id: 2, name: 'Studio Lighting', price: 200000 },
-    { id: 3, name: 'Premium Package', price: 300000 }
-  ];
+  const handleChange = (e) => {
+    setFormData({...formData, [e.target.name]: e.target.value});
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const res = await fetch('/api/bookings', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData)
+    });
+    if (res.ok) alert("Booking submitted!");
+  };
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-3xl mx-auto">
-        <div className="bg-white shadow-xl rounded-lg overflow-hidden">
-          {/* Header */}
-          <div className="bg-indigo-700 px-6 py-4">
-            <h2 className="text-2xl font-bold text-white">Form Booking Studio</h2>
-          </div>
-
-          {/* Form */}
-          <div className="p-6 space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {/* Input fields dengan styling modern */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Nama Lengkap</label>
-                <input
-                  type="text"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all"
-                />
-              </div>
-              
-              {/* ... tambahkan semua input field lainnya ... */}
-            </div>
-
-            {/* Price Summary Card */}
-            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
-              <h3 className="font-medium text-lg mb-3">Ringkasan Harga</h3>
-              <div className="space-y-2">
-                <div className="flex justify-between">
-                  <span>Harga per orang:</span>
-                  <span className="font-medium">Rp 150.000</span>
-                </div>
-                {/* ... tambahkan detail harga ... */}
-              </div>
-            </div>
-          </div>
-
-          {/* Submit Button */}
-          <div className="bg-gray-50 px-6 py-4 border-t border-gray-200">
-            <button
-              type="button"
-              className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-3 px-4 rounded-lg shadow-sm transition-colors duration-200"
-            >
-              Konfirmasi Booking
-            </button>
-          </div>
-        </div>
-      </div>
+    <div className="max-w-xl mx-auto p-6 bg-white shadow rounded mt-10">
+      <h2 className="text-xl font-bold mb-4">Booking Form</h2>
+      <form onSubmit={handleSubmit} className="space-y-4">
+        <input name="name" placeholder="Name" onChange={handleChange} className="input w-full" />
+        <input name="phone" placeholder="Phone" onChange={handleChange} className="input w-full" />
+        <input name="date" type="date" onChange={handleChange} className="input w-full" />
+        <input name="time_slot" placeholder="Time Slot" onChange={handleChange} className="input w-full" />
+        <textarea name="notes" placeholder="Notes" onChange={handleChange} className="textarea w-full" />
+        <button type="submit" className="btn btn-primary w-full">Submit</button>
+      </form>
     </div>
   );
 }
+
+export default BookingPage;
