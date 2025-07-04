@@ -1,9 +1,14 @@
+// src/context/AuthContext.jsx
 import React, { createContext, useState, useContext } from 'react';
 import axios from 'axios';
 
 const AuthContext = createContext();
 
-const AuthProvider = ({ children }) => {
+export const useAuth = () => {
+  return useContext(AuthContext);
+};
+
+export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
   const login = async (username, password) => {
@@ -28,9 +33,3 @@ const AuthProvider = ({ children }) => {
     </AuthContext.Provider>
   );
 };
-
-export default AuthProvider;
-
-export function useAuth() {
-  return useContext(AuthContext);
-}
