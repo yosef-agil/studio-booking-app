@@ -27,6 +27,9 @@ const AuthProvider = ({ children }) => {
       {children}
     </AuthContext.Provider>
   );
-}
+};
 
 export default AuthProvider;
+
+// ✅ TAMBAHKAN INI
+export const useAuth = () => useContext(AuthContext);
